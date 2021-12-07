@@ -32,11 +32,12 @@ defmodule Day7 do
     positions
     |> Map.keys()
     |> Enum.min_max()
-    |> fn {min, max} -> min..max end.()
+    |> (fn {min, max} -> min..max end).()
   end
 
   def run do
     positions = inputs!()
+
     Enum.reduce(possible_positions(positions), %{}, fn position, acc ->
       Map.put(acc, position, difference(position, positions))
     end)
@@ -45,6 +46,7 @@ defmodule Day7 do
 
   def run2 do
     positions = inputs!()
+
     Enum.reduce(possible_positions(positions), %{}, fn position, acc ->
       Map.put(acc, position, growing_difference(position, positions))
     end)
