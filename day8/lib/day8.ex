@@ -57,7 +57,7 @@ defmodule Day8 do
         |> MapSet.intersection(seven)
         |> MapSet.intersection(nine)
 
-      MapSet.size(set) == 6 && !Enum.member?([seven, eight, nine], set) && intersection == seven
+      MapSet.size(set) == 6 && !Enum.member?([eight, nine], set) && intersection == seven
     end)
   end
 
